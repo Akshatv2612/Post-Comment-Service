@@ -5,8 +5,6 @@ import { ApiError } from "../utils/ApiError.js";
 
 const verifyJWT = asyncHandler(async (req, res, next) => {
     try {
-        console.log(req)
-        console.log(req.cookies)
         const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "")
         if (!token) {
             throw new ApiError(401, "Access Token is absent")
