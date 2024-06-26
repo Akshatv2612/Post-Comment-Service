@@ -1,0 +1,1 @@
+export const DB_NAME='post_comment_service_db'
