@@ -6,6 +6,9 @@ A user-friendly and responsive posts sharing web application, where user can cre
   - [Table of Contents](#table-of-contents)
   - [Set up ans Run](#set-up-ans-run)
   - [Features](#features)
+  - [Architecture](#architecture)
+    - [Components](#components)
+    - [Data Flow:](#data-flow)
   - [Technologies](#technologies)
       - [Frontend-backend](#frontend-backend)
       - [Key technology features](#key-technology-features)
@@ -99,6 +102,30 @@ On clicking the "Add post" button on Home page, user can create a post by fillin
 The "Edit" and "Delete" buttons appears only to the owner of the post. The post page is given below, which have post, comments and add comment feature.
 
 <img src="./screenshots/post.png" alt="Alt Text - description of the image" width="70%">
+
+## Architecture
+
+![Architecture Diagram](/Architecture-Diagram.png)
+
+Here's a breakdown of your website's architecture
+
+### Components
+
+**Frontend:** Built with React.js, Tailwind CSS, and JavaScript. This layer handles user interactions, rendering the UI (user interface), and sending requests to the backend API.
+**Backend API:** Built with Express.js and Node.js. This layer processes user requests, interacts with the database, and generates responses.
+**Database:** MongoDB stores user data (authentication), post information, and comments.
+**Cloud Storage:** Cloudinary stores uploaded post thumbnails securely and efficiently.
+**JWT Authentication:** Ensures secure user access by issuing tokens after successful login.
+
+### Data Flow:
+
+**User Interaction:** User interacts with the frontend (e.g., creating a post, commenting).
+Frontend Request: Frontend sends a request to the backend API with relevant data (e.g., post content, comment text, etc.).
+**API Processing:** Backend API validates the request, fetches data from the database (if needed), performs operations like creating posts or comments, and interacts with Cloudinary for uploads.
+**Database Interaction:** The API interacts with MongoDB to store or retrieve data.
+**Cloud Storage Interaction:** The API interacts with Cloudinary to upload/download post thumbnails.
+**API Response:** The API sends a response back to the frontend with the requested data or success/error messages.
+**Frontend Update:** The frontend updates the UI based on the API response (e.g., displays new post, confirms comment creation).
 
 
 ## Technologies
