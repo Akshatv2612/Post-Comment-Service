@@ -4,7 +4,7 @@ A user-friendly and responsive posts sharing web application, where user can cre
 ## Table of Contents
 - [Post-Comment Service](#post-comment-service)
   - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
+  - [Set up ans Run](#set-up-ans-run)
   - [Features](#features)
   - [Technologies](#technologies)
       - [Frontend-backend](#frontend-backend)
@@ -15,7 +15,7 @@ A user-friendly and responsive posts sharing web application, where user can cre
     - [Database](#database)
     - [Cloud Storage](#cloud-storage)
 
-## Installation
+## Set up ans Run
 
 1. **Download and Extract**:
    - Download the zip folder of this project from the 'code' section of the repository.
@@ -64,9 +64,10 @@ A user-friendly and responsive posts sharing web application, where user can cre
 7. **Usage**
     - Open url http://localhost:5173/ to test the application.
 
+<span style="color:green;">If you find any difficulty or problem while set, please contact me at 'akshat1226@gmail.com'</span>
 
-  
 <span style="color:red;">Important Note:</span> While I’ve included the .env files in this repository for your convenience during installation, I am aware that pushing sensitive information (such as API keys or credentials) to a public GitHub repository is generally not recommended. But I have done this only for your convenience.
+
 
 ## Features
 Here is the overview of the features of the project.

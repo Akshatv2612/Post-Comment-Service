@@ -3,6 +3,8 @@ import Jwt from "jsonwebtoken";
 import { User} from "../models/user.model.js";
 import { ApiError } from "../utils/ApiError.js";
 
+/* The `verifyJWT` function is a middleware function used for verifying JSON Web Tokens (JWT) in a
+Node.js*/
 const verifyJWT = asyncHandler(async (req, res, next) => {
     try {
         const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "")

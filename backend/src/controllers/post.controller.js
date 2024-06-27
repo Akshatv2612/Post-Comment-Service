@@ -6,6 +6,7 @@ import { asyncHandler } from "../utils/AsyncHandler.js";
 import { uploadOnCloudinary, deleteFromCloudinary } from "../utils/cloudinary.js";
 import { User } from "../models/user.model.js";
 
+/* The `createPost` function is responsible for handling the creation of a new post.*/
 const createPost = asyncHandler(async (req, res) => {
     const { title, content, isPublished } = req.body;
     if (!title) {
@@ -39,6 +40,7 @@ const createPost = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `updatePost` function is responsible for handling the updating of an existing post.*/
 const updatePost = asyncHandler(async (req, res) => {
     const { title, content, isPublished } = req.body
     if (!title) {
@@ -95,6 +97,7 @@ const updatePost = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `deletePost` function is responsible for handling the deletion of a post.*/
 const deletePost = asyncHandler(async (req, res) => {
     const { postId } = req.params
     const post = await Post.findById(postId)
@@ -122,6 +125,8 @@ const deletePost = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `getAllPosts` function is responsible for fetching all posts that are marked as published
+(`isPublished: true`).*/
 const getAllPosts = asyncHandler(async (req, res) => {
     const { page = 1, limit = 100 } = req.query
 
@@ -163,6 +168,8 @@ const getAllPosts = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `getPost` function is responsible for fetching a specific post based on the `postId` parameter
+provided in the request.*/
 const getPost = asyncHandler(async (req, res) => {
 
     const { postId } = req.params
@@ -185,6 +192,8 @@ const getPost = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `getCurrentUserPosts` function is responsible for fetching all posts that belong to the
+currently authenticated user.*/
 const getCurrentUserPosts = asyncHandler(async (req, res) => {
     const { page = 1, limit = 10 } = req.query
     const options = {

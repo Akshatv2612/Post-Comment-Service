@@ -1,6 +1,8 @@
 import mongoose, { Schema } from "mongoose";
 import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2';
 
+/* This code snippet is defining a Mongoose schema for a `Post` model in a Node.js application using
+MongoDB.*/
 const postSchema = new Schema({
     title:{
         type:String,

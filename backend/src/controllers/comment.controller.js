@@ -4,6 +4,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/AsyncHandler.js";
 
+/* The `createComment` function is responsible for creating a new comment.*/
 const createComment = asyncHandler(async (req, res) => {
     const { content } = req.body;
     if (!content) {
@@ -30,6 +31,7 @@ const createComment = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `updateComment` function is responsible for updating an existing comment.*/
 const updateComment = asyncHandler(async (req, res) => {
     const { content } = req.body
 
@@ -71,6 +73,7 @@ const updateComment = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `deleteComment` function is responsible for deleting a comment.*/
 const deleteComment = asyncHandler(async (req, res) => {
     const { commentId } = req.params
     const comment = await Comment.findById(commentId)
@@ -98,6 +101,7 @@ const deleteComment = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `getComments` function is responsible for fetching comments associated with a specific post.*/
 const getComments = asyncHandler(async (req, res) => {
     const { postId } = req.params
     const { page = 1, limit = 100 } = req.query

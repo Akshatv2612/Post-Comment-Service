@@ -3,6 +3,14 @@ import { asyncHandler } from "../utils/AsyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
+/**
+ * The function generates an access token and a refresh token for a user identified by their ID.
+ * The `userId` parameter is the unique identifier of the user for whom you want to
+ * generate an access token and a refresh token. It is used to find the user in the database and
+ * generate tokens for that specific user.
+ * The function `generateAccessTokenAndRefreshToken` returns an object containing the
+ * generated access token and refresh token.
+ */
 const generateAccessTokenAndRefreshToken = async (userId) => {
     try {
         const user = await User.findById(userId)
@@ -19,6 +27,7 @@ const generateAccessTokenAndRefreshToken = async (userId) => {
     }
 }
 
+/* The `registerUser` function is responsible for handling the registration process for a new user.*/
 const registerUser = asyncHandler(async (req, res, next) => {
     // get user details from frontend
     // validation - not empty
@@ -64,6 +73,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
     )
 });
 
+/* The `loginUser` function is responsible for handling the login process for a user.*/
 const loginUser = asyncHandler(async (req, res) => {
     //Get data from user
     //check data
@@ -115,6 +125,7 @@ const loginUser = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `logoutUser` function is responsible for logging out a user.*/
 const logoutUser = asyncHandler(async (req, res) => {
     const userr = await User.findByIdAndUpdate(
         req.user._id,
@@ -146,6 +157,7 @@ const logoutUser = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `getCurrentUser` function is responsible for fetching the current user's details.*/
 const getCurrentUser = asyncHandler(async (req, res) => {
     res
         .status(200)
@@ -154,6 +166,7 @@ const getCurrentUser = asyncHandler(async (req, res) => {
         )
 })
 
+/* The `refreshAccessToken` function is responsible for refreshing the access token for a user.*/
 const refreshAccessToken = asyncHandler(async (req, res) => {
     const userRefreshToken = req.cookies.refreshToken || req.body.refreshToken
     if (!userRefreshToken) {
