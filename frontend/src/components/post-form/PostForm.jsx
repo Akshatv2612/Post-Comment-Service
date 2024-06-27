@@ -5,7 +5,6 @@ import postService from '../../services/post.js'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import LoadingMSG from '../spinners/LoaderMSG.jsx'
-import {Loader} from '../../components'
 
 function PostForm({ post }) {
     const { register, handleSubmit, watch, control, setValue, getValues } = useForm({
@@ -38,7 +37,7 @@ function PostForm({ post }) {
         setSubmitting(false)
     };
 
-    return post ? (
+    return (
         <div>
             {submitting ? <LoadingMSG message='Saving Post' /> : null}
             <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
@@ -81,7 +80,7 @@ function PostForm({ post }) {
                 </div>
             </form>
         </div>
-    ) : <Loader />
+    )
 }
 
 export default PostForm
