@@ -23,8 +23,8 @@ function Login() {
         try {
             const response = await authService.login(data.email, data.password)
             if (response.success==true) {
-                setCookie('accessToken', response.data.accessToken, {path:'/', httpOnly:false, sameSite: 'none', secure: false })
-                setCookie('refreshToken', response.data.refreshToken, {path:'/', httpOnly:false, sameSite: 'none', secure: false })
+                setCookie('accessToken', response.data.accessToken, { httpOnly:false, secure: false })
+                setCookie('refreshToken', response.data.refreshToken, { httpOnly:false, secure: false })
                 const user = await authService.getCurrentUser()
                 if (user) {
                     dispatch(logIn(user))
