@@ -11,7 +11,7 @@ function EditPostLayout({ children }) {
     useEffect(() => {
         postService.getPost(postId)
             .then((post) => {
-                if (post.owner !== user._id) {
+                if (post.owner._id !== user._id) {
                     navigate('/')
                 }
             })

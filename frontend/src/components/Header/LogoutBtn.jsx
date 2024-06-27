@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux'
 import { logOut } from '../../slices/authSlice'
 import authService from '../../services/auth'
 import LoadingMSG from '../spinners/LoaderMSG'
+import { useNavigate } from 'react-router-dom'
 
 function LogoutBtn() {
     const dispatch = useDispatch()
+    const navigate=useNavigate()
     const [signingOut, setSigningOut] = useState(false)
 
     const handleLogout = () => {
@@ -14,6 +16,7 @@ function LogoutBtn() {
             .then(() => {
                 dispatch(logOut())
                 setSigningOut(false)
+                navigate('/login')
             })
             .catch((error)=>{
                 console.log('Logout Error',error)

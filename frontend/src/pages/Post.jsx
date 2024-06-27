@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import parse from "html-react-parser";
 import postService from "../services/post";
 import commentService from "../services/comment";
-import { Button, CommentCard, Container, LoaderMSG, RTE } from "../components";
+import { Button, CommentCard, Container, Loader, LoaderMSG, RTE } from "../components";
 import { setComments, addComment } from "../slices/commentSlice";
 import { useForm } from "react-hook-form";
 import timeAgo from "../utils/timeInterval";
@@ -33,7 +33,7 @@ export default function Post() {
             postService.getPost(postId)
                 .then((post) => {
                     setPost(post)
-                    setIsAuthor(post && userData ? post.owner === userData._id : false)
+                    setIsAuthor(post && userData ? post?.owner?._id === userData?._id : false)
                     commentService.getAllComments(postId)
                         .then((comments) => {
                             dispatch(setComments(comments.docs))
@@ -154,5 +154,5 @@ export default function Post() {
                 </div>
             </div>
         </div>
-    ) : null;
+    ) : <Loader/>;
 }

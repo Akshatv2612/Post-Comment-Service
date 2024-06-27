@@ -45,7 +45,7 @@ function Home() {
         else return (
             <div className='w-full py-8'>
                 <Container>
-                    <div className='flex flex-wrap justify-between'>
+                    <div className='flex flex-wrap justify-center'>
                         {posts.length !== 0 ?
                             posts.map((post) => (
                                 <div key={post._id} className='p-2 lg:w-[290px] md:w-1/2'>
